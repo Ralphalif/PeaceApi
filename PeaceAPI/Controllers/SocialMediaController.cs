@@ -25,7 +25,9 @@ namespace Peace.API.Controllers
                     DateOfDeath = request.DateOfDeath,
                     Email = request.Email,
                     FullName = request.FullName,
-                    SelectedPlatforms = request.SelectedPlatforms
+                    SelectedPlatforms = new List<PlatformDto>(),
+                    DeathRelatedDocuments = request.DeathRelatedDocuments,
+                    Comments = request.Comments,//request.SelectedPlatforms
                 };
                 await _socialMediaHandler.HandleSocialMediaRequest(dto);
                 return Ok("Begäran mottagen och behandlad.");

@@ -19,17 +19,13 @@ builder.Services.AddTransient<TwitterService>();
 builder.Services.AddTransient<GoogleService>();
 builder.Services.AddTransient<LinkedinService>();
 builder.Services.AddTransient<SocialMediaHandler>();
-
-
 builder.Services.AddSingleton<ISocialMediaServiceFactory, SocialMediaServiceFactory>();
 builder.Services.AddSingleton<IHttpClientWrapper, HttpClientWrapper>();
 
-var shu = new ConfigurationBuilder()
+new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory()) // This line requires the 'using' directive.
     .AddJsonFile("appsettings.json")
     .Build();
-
-var hej = shu.GetValue<string>("FacebookServiceSettings:BaseAddress");
 
 builder.Services.AddHttpClient();
 
